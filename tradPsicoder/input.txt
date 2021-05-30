@@ -1,5 +1,6 @@
 funcion_principal
-  entero a;
+  entero a=4+5/3,b,c=0;
+  cadena t = "hola",x;
   leer( a );
   imprimir( "variable", a );
 

@@ -10,7 +10,7 @@ def main(argv):
     stream = CommonTokenStream(lexer)
     parser = PsicoderParser(stream)
     tree = parser.s()
-    output = open("output.txt","w")
+    output = open("output.py","w")
 
     Traductor = PsicoderTraductorListener(output)
     walker = ParseTreeWalker()

@@ -1,0 +1,4 @@
+//New python script
+Empece :)
+def main():
+Termine :(
