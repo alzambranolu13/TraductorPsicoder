@@ -1,4 +1,4 @@
-# Generated from C:/Users/a-zam/OneDrive/Documentos/Universidad/Lenguajes de programacion/traductor/tradPsicoder/grammar\Psicoder.g4 by ANTLR 4.9.1
+# Generated from C:/Users/a-zam/OneDrive/Documentos/Universidad/Lenguajes de programacion/traductor/TraductorPsicoder/tradPsicoder/grammar\Psicoder.g4 by ANTLR 4.9.1
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .PsicoderParser import PsicoderParser

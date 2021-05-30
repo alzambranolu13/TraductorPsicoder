@@ -5,8 +5,9 @@ def main():
 	t, x = "hola", ""
 	a = input()
 	print("variable",a)
-	if (:
-	print(a)
+	if (a<5) and (a>10):
+		print(a)
+		print(a-1)
 if __name__ == '__main__':
 	main()
 ##Termine :(
