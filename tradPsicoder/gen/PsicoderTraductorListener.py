@@ -72,6 +72,19 @@ class PsicoderTraductorListener(PsicoderListener):
         self.output.write(cadena + "\n")
         
 
+    def enterSi(self, ctx: PsicoderParser.SiContext):
+        self.printTabs()
+        self.output.write("if ")
+        cadena = ctx.expresion_logica().getText().replace("&&"," and ").replace("||"," or ")
+        self.output.write(cadena)
+        self.output.write(":\n")
+        self.ntabs = self.ntabs + 1
+
+    def exitSi(self, ctx:PsicoderParser.SiContext):
+        self.ntabs = self.ntabs - 1
+    
+    def enterSi_no(self, ctx:PsicoderParser.Si_noContext):
+        pass
 
     def exitFuncion_principal(self, ctx: PsicoderParser.Funcion_principalContext):
         self.ntabs = 0

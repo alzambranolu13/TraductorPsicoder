@@ -55,6 +55,7 @@ pasar_parametros    : expr (',' expr)*
 expresion_logica    : expresion_logica ROL expresion_logica
                     | expresion_rop
                     | expresion_roi
+                    |'(' expresion_logica ')'
                     | NEG expresion_logica
                     | expr ;
 

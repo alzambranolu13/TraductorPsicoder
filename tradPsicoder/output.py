@@ -5,6 +5,8 @@ def main():
 	t, x = "hola", ""
 	a = input()
 	print("variable",a)
+	if (:
+	print(a)
 if __name__ == '__main__':
 	main()
 ##Termine :(

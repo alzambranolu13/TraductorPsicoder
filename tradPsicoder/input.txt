@@ -3,5 +3,11 @@ funcion_principal
   cadena t = "hola",x;
   leer( a );
   imprimir( "variable", a );
+  si ( (a < 5) && (a>10) ) entonces
+    imprimir(a);       
+  si_no
+    imprimir(a-1);   
+  fin_si
+
 
 fin_principal
