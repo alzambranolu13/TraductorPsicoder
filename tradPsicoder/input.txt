@@ -4,10 +4,22 @@ funcion_principal
   leer( a );
   imprimir( "variable", a );
   si ( (a < 5) && (a>10) ) entonces
-    imprimir(a);       
+    imprimir(a);
+    si (a == 0) entonces 
+      hola=7
+    si_no
+      hola=1
+    fin_si     
   si_no
     imprimir(a-1);   
   fin_si
 
+  si (x==3) entonces
+    entero tres =3;
+  fin_si
+  imprimir(4);
+  para ( entero i = 0 ; i < a ; 1 ) hacer
+    imprimir(i);
+  fin_para
 
 fin_principal

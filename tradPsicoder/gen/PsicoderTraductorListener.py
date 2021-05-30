@@ -81,15 +81,28 @@ class PsicoderTraductorListener(PsicoderListener):
         self.ntabs = self.ntabs + 1
 
     def exitSi(self, ctx:PsicoderParser.SiContext):
+        #self.ntabs = self.ntabs - 1
+        pass
+
+    def enterSi_no(self, ctx:PsicoderParser.Si_noContext):
+        if ctx.getText() != "":
+            self.ntabs = self.ntabs - 1
+            self.printTabs()
+            self.output.write("else")
+            self.output.write(":\n")
+            self.ntabs = self.ntabs + 1
+    
+    def exitSi_no(self, ctx:PsicoderParser.Si_noContext):
         self.ntabs = self.ntabs - 1
     
-    def enterSi_no(self, ctx:PsicoderParser.Si_noContext):
+    def enterAsignacion_id(self,ctx:PsicoderParser.AsignacionContext):
         self.printTabs()
-        self.output.write("if ")
-        cadena = ctx.expresion_logica().getText().replace("&&", " and ").replace("||", " or ")
-        self.output.write(cadena)
-        self.output.write(":\n")
-        self.ntabs = self.ntabs + 1
+        cadena = ctx.getText().replace(";","")
+        self.output.write(cadena+"\n")
+
+    
+    def enterPara(self, ctx: PsicoderParser.ParaContext):
+        self.printTabs()
 
     def exitFuncion_principal(self, ctx: PsicoderParser.Funcion_principalContext):
         self.ntabs = 0
