@@ -35,15 +35,15 @@ comando             : si
 si                  : 'si' '(' expresion_logica ')' 'entonces' comandos si_no 'fin_si';
 si_no               : 'si_no' comandos
                     | ;
-para                : 'para' '(' (asignacion | asignacion_entero) ';' expresion_rop ';' asignacion_id ')' 'hacer' comandos 'fin_para' ;
-asignacion_entero   : 'entero' asignacion;
-hacer_mientras      : 'hacer' comandos 'mientras' '(' expresion_rop ')';
-mientras            : 'mientras' '(' expresion_rop ')' 'hacer' comandos 'fin_mientras';
+para                : 'para' '(' (asignacion_id | asignacion_entero) ';' expresion_logica ';' (INT | ID) ')' 'hacer' comandos 'fin_para' ;
+asignacion_entero   : 'entero' ID asignacion;
+hacer_mientras      : 'hacer' comandos 'mientras' '(' expresion_logica ')' ';' ;
+mientras            : 'mientras' '(' expresion_logica')' 'hacer' comandos 'fin_mientras';
 seleccionar         : 'seleccionar' '(' ID ')' 'entre' casos 'fin_seleccionar';
 casos               : caso casos
                     | 'defecto' ':' comandos ;
 caso                : 'caso' expr ':' comandos romper ;
-asignacion_id       : id_pos_estruct '=' expr;
+asignacion_id       : id_pos_estruct '=' expr ';';
 leer                : 'leer' '(' id_pos_estruct ')' ';';
 imprimir            : 'imprimir' '(' (expr|llamar_funcion) (',' expr)* ')' ';';
 romper              : 'romper' ';'
