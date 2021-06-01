@@ -179,6 +179,15 @@ class PsicoderListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PsicoderParser#asignacion_id_para.
+    def enterAsignacion_id_para(self, ctx:PsicoderParser.Asignacion_id_paraContext):
+        pass
+
+    # Exit a parse tree produced by PsicoderParser#asignacion_id_para.
+    def exitAsignacion_id_para(self, ctx:PsicoderParser.Asignacion_id_paraContext):
+        pass
+
+
     # Enter a parse tree produced by PsicoderParser#asignacion_id.
     def enterAsignacion_id(self, ctx:PsicoderParser.Asignacion_idContext):
         pass
@@ -212,6 +221,15 @@ class PsicoderListener(ParseTreeListener):
 
     # Exit a parse tree produced by PsicoderParser#romper.
     def exitRomper(self, ctx:PsicoderParser.RomperContext):
+        pass
+
+
+    # Enter a parse tree produced by PsicoderParser#llamar_funcion_dentro_imp.
+    def enterLlamar_funcion_dentro_imp(self, ctx:PsicoderParser.Llamar_funcion_dentro_impContext):
+        pass
+
+    # Exit a parse tree produced by PsicoderParser#llamar_funcion_dentro_imp.
+    def exitLlamar_funcion_dentro_imp(self, ctx:PsicoderParser.Llamar_funcion_dentro_impContext):
         pass
 
 

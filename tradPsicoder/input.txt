@@ -1,62 +1,15 @@
-funcion entero sum(entero a, entero b) hacer
-    retornar a + b;
-    // fin
-fin_funcion
-
-estructura Point
-    entero x;
-    entero y;
-    real a, b, c;
-    C c;
-fin_estructura
-
-
 funcion_principal
-  entero a=4+5/3,b,c=0;
-  cadena t = "hola",x;
-  leer( a );
-  imprimir( "variable", a );
-  si ( (a < 5) && (a>10) ) entonces
-    imprimir(a);
-    si (a == 0) entonces 
-      hola=7;
-    si_no
-      hola=1;
-    fin_si     
-  si_no
-    imprimir(a-1);   
-  fin_si
-
-  si (x==3) entonces
-    entero tres =3;
-  fin_si
-  imprimir(4);
-  para ( entero i = 0 ; i < a ; 1 ) hacer
-    imprimir(i);
-  fin_para
-
-  mientras ( verdadero ) hacer
-    a = a - 1;
-  fin_mientras
-
-  hacer
-    a = a/2;
-  mientras( a > 0 );
-
-  sumar(a,b);
-  booleano a = verdadero;
-
-  seleccionar ( a ) entre
-        caso 0 :
-            imprimir(a);
-            romper;
-        caso 1:
-            imprimir(a*2);
-            romper;
-        defecto:
-    fin_seleccionar
-
-
-
-
-fin_principal
+   entero n;
+   booleano flag = falso;
+   leer( n );
+   para (entero i = 2 ; i < n ; 1 ) hacer
+   si ( n % i == 0 ) entonces
+    	imprimir( "no es primo");
+         flag = verdadero;
+        	   fin_si
+   fin_para
+    si ( flag == falso ) entonces
+   	imprimir("es primo");
+   si_no
+   fin_si
+ fin_principal
