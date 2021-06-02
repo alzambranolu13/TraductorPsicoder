@@ -181,18 +181,29 @@ class PsicoderTraductorListener(PsicoderListener):
         self.output.write(ctx.getText()+ "\n")
 
     variable = ''
+    primero = ""
     def enterSeleccionar(self, ctx: PsicoderParser.SeleccionarContext):
         self.printTabs()
         global variable
         variable = ctx.ID().getText()
         self.output.write ( "if "+ variable + ": \n")
         self.ntabs = self.ntabs + 1
+        global primero
+        if ctx.casos().caso() != None:
+            primero = ctx.casos().caso().expr().getText()
 
+    
+    def exitSeleccionar(self,ctx: PsicoderParser.SeleccionarContext):
+        self.ntabs = self.ntabs - 1
 
     def enterCaso(self, ctx:PsicoderParser.CasosContext):
         self.printTabs()
         global variable
-        self.output.write("if " + variable + "==" + ctx.expr().getText() + ": \n")
+        global primero
+        if ctx.expr().getText() == primero:
+            self.output.write("if " + variable + "==" + ctx.expr().getText() + ": \n")
+        else:
+            self.output.write("elif " + variable + "==" + ctx.expr().getText() + ": \n")
         self.ntabs = self.ntabs + 1
 
 
@@ -202,11 +213,11 @@ class PsicoderTraductorListener(PsicoderListener):
 
     def enterDefecto(self, ctx:PsicoderParser.DefectoContext):
         self.printTabs()
-        self.output.write("else :\n")
+        self.output.write("else:\n")
         self.ntabs = self.ntabs + 1
-        if (ctx.comandos().getText() == ''):
+        if (ctx.comandos().getText() == '' or ctx.comandos().getText() == 'romper;'):
             self.printTabs()
-            self.output.write("pass \n")
+            self.output.write("pass\n")
 
     def exitDefecto(self, ctx:PsicoderParser.DefectoContext):
         self.ntabs = self.ntabs - 1
