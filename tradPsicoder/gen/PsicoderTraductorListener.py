@@ -180,26 +180,36 @@ class PsicoderTraductorListener(PsicoderListener):
         self.printTabs()
         self.output.write(ctx.getText()+ "\n")
 
+    variable = ''
     def enterSeleccionar(self, ctx: PsicoderParser.SeleccionarContext):
-        pass
-       ## self.printTabs()
-       ## variable = ctx.ID().getText()
-       ## self.output.write ( "if "+ variable + ": \n")
-       # self.ntabs = self.ntabs + 1
-       # for caso in ctx.casos():
-       #     self.printTabs()
-       #     if ( caso == ctx.casos()[0]):
-       #         self.output.write("if " + variable + "==" + caso.expr().getText() + ": \n")
-       #     elif ('defecto' in caso.getText() ):
-       #         self.output.write("else " + variable + "==" + caso.expr().getText() + ": \n")
-       #     else:
-       #         self.output.write("elif " + variable + "==" + caso.expr().getText() + ": \n")
-       #     self.ntabs = self.ntabs + 1
+        self.printTabs()
+        global variable
+        variable = ctx.ID().getText()
+        self.output.write ( "if "+ variable + ": \n")
+        self.ntabs = self.ntabs + 1
 
 
-    def exitCaso(self, ctx:PsicoderParser.CasoContext):
+    def enterCaso(self, ctx:PsicoderParser.CasosContext):
+        self.printTabs()
+        global variable
+        self.output.write("if " + variable + "==" + ctx.expr().getText() + ": \n")
+        self.ntabs = self.ntabs + 1
+
+
+    def exitCaso(self, ctx:PsicoderParser.CasosContext):
         self.ntabs = self.ntabs - 1
 
+
+    def enterDefecto(self, ctx:PsicoderParser.DefectoContext):
+        self.printTabs()
+        self.output.write("else :\n")
+        self.ntabs = self.ntabs + 1
+        if (ctx.comandos().getText() == ''):
+            self.printTabs()
+            self.output.write("pass \n")
+
+    def exitDefecto(self, ctx:PsicoderParser.DefectoContext):
+        self.ntabs = self.ntabs - 1
 
     def enterFuncion(self, ctx:PsicoderParser.FuncionContext):
         self.printTabs()

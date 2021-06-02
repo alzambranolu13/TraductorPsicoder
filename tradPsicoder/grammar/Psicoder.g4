@@ -41,8 +41,9 @@ hacer_mientras      : 'hacer' comandos 'mientras' '(' expresion_logica ')' ';' ;
 mientras            : 'mientras' '(' expresion_logica')' 'hacer' comandos 'fin_mientras';
 seleccionar         : 'seleccionar' '(' ID ')' 'entre' casos 'fin_seleccionar';
 casos               : caso casos
-                    | 'defecto' ':' comandos ;
+                    | defecto ;
 caso                : 'caso' expr ':' comandos romper ;
+defecto             : 'defecto' ':' comandos ;
 asignacion_id_para  : ID '=' expr ;
 asignacion_id       : id_pos_estruct '=' expr ';';
 leer                : 'leer' '(' id_pos_estruct ')' ';';

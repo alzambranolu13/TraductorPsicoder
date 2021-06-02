@@ -179,6 +179,15 @@ class PsicoderListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PsicoderParser#defecto.
+    def enterDefecto(self, ctx:PsicoderParser.DefectoContext):
+        pass
+
+    # Exit a parse tree produced by PsicoderParser#defecto.
+    def exitDefecto(self, ctx:PsicoderParser.DefectoContext):
+        pass
+
+
     # Enter a parse tree produced by PsicoderParser#asignacion_id_para.
     def enterAsignacion_id_para(self, ctx:PsicoderParser.Asignacion_id_paraContext):
         pass
