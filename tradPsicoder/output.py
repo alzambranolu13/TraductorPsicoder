@@ -1,7 +1,7 @@
 ##New python script
-##Empece :)
 def main():
-	n=0
+	a=3
+	a = input()
 	if a: 
 		if a==0: 
 			print(a)
@@ -9,6 +9,10 @@ def main():
 			print(a*2)
 		else:
 			pass
+
 if __name__ == '__main__':
-	main()
-##Termine :(
+	main() 
+
+
+##Termine :)
+ 

@@ -233,12 +233,12 @@ class PsicoderListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PsicoderParser#llamar_funcion_dentro_imp.
-    def enterLlamar_funcion_dentro_imp(self, ctx:PsicoderParser.Llamar_funcion_dentro_impContext):
+    # Enter a parse tree produced by PsicoderParser#llamar_funcion_dentro.
+    def enterLlamar_funcion_dentro(self, ctx:PsicoderParser.Llamar_funcion_dentroContext):
         pass
 
-    # Exit a parse tree produced by PsicoderParser#llamar_funcion_dentro_imp.
-    def exitLlamar_funcion_dentro_imp(self, ctx:PsicoderParser.Llamar_funcion_dentro_impContext):
+    # Exit a parse tree produced by PsicoderParser#llamar_funcion_dentro.
+    def exitLlamar_funcion_dentro(self, ctx:PsicoderParser.Llamar_funcion_dentroContext):
         pass
 
 

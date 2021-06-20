@@ -47,10 +47,10 @@ defecto             : 'defecto' ':' comandos ;
 asignacion_id_para  : ID '=' expr ;
 asignacion_id       : id_pos_estruct '=' expr ';';
 leer                : 'leer' '(' id_pos_estruct ')' ';';
-imprimir            : 'imprimir' '(' (expr|llamar_funcion_dentro_imp) (',' expr)* ')' ';';
+imprimir            : 'imprimir' '(' (expr) (',' expr)* ')' ';';
 romper              : 'romper' ';'
                     | ;
-llamar_funcion_dentro_imp   : ID '(' pasar_parametros ')' ;
+llamar_funcion_dentro : ID '(' pasar_parametros ')' ;
 llamar_funcion      : ID '(' pasar_parametros ')' ';';
 pasar_parametros    : expr (',' expr)*
                     | ;
@@ -65,10 +65,12 @@ expresion_logica    : expresion_logica ROL expresion_logica
 expresion_rop       : expr ROP expr ;
 expresion_roi       : expr ROI expr ;
 
+
+
 expr                : expr MULOP expr
                     | expr SUMOP expr
                     | PIZQ expr PDER
-                    | llamar_funcion
+                    | llamar_funcion_dentro
                     | id_pos_estruct //Nueva opcion //Aun no esta implementado en el visitor
                     | DOUBLE
                     | INT

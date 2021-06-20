@@ -15,7 +15,7 @@ class PsicoderTraductorListener(PsicoderListener):
             self.output.write("\t")
 
     def enterS(self, ctx:PsicoderParser.SContext):
-        self.output.write("##Empece :)\n")
+        pass
 
 
     def enterFuncion_principal(self, ctx: PsicoderParser.Funcion_principalContext):
@@ -253,9 +253,9 @@ class PsicoderTraductorListener(PsicoderListener):
 
     def exitFuncion_principal(self, ctx: PsicoderParser.Funcion_principalContext):
         self.ntabs = 0
-        self.output.write("if __name__ == '__main__':\n\tmain()")
+        self.output.write("\nif __name__ == '__main__':\n\tmain() \n\n")
 
 
     def exitS(self, ctx:PsicoderParser.SContext):
 
-        self.output.write("\n##Termine :(\n")
+        self.output.write("\n##Termine :)\n ")
